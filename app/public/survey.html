@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FriendFinder</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+</head>
+
+
+<body>
+    <div style="float: right">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="homebutton" style="margin: 20px"
+            onclick="window.location.href='home'"><i class="fa fa-check-circle" aria-hidden="true"></i>
+            Home</button>
+
+    </div>
+    <div class="container">
+
+        <h2>Survey Questions</h2>
+        <hr>
+
+        <h3><strong>About You</strong></h3>
+        <h4>Name (Required)</h4>
+        <input type="text" id="name" class="form-control" required="">
+
+        <h4>Link to Photo Image (Required)</h4>
+        <input type="text" id="photo" class="form-control" required="">
+
+        <hr>
+
+        <h3><strong>Question 1</strong></h3>
+        <h4>What do you think of travelling at least once a year?</h4>
+        <!-- <select class="chosen-select" id="q1" style="display: none;"> -->
+        <select data-placeholder="Choose a Country" class="chosen-select" id="q1 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+
+        <h3><strong>Question 2</strong></h3>
+        <h4>Do you believe in Karma?</h4>
+        <select data-placeholder="Choose a Country" class="chosen-select" id="q2 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+
+        <h3><strong>Question 3</strong></h3>
+        <h4>Do you think dogs are man's best friend?</h4>
+        <select data-placeholder="Choose a Country" class="chosen-select" id="q3 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+        <h3><strong>Question 4</strong></h3>
+        <h4>Education is important to enhance person's life</h4>
+        <select data-placeholder="Choose a option" class="chosen-select" id="q4 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+        <h3><strong>Question 5</strong></h3>
+        <h4>You are a very calm person.</h4>
+        <select data-placeholder="Choose a option" class="chosen-select" id="q5 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+
+        <h3><strong>Question 6</strong></h3>
+        <h4>Good job is worthy the long drive.</h4>
+        <select data-placeholder="Choose a option" class="chosen-select" id="q6 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+        <h3><strong>Question 7</strong></h3>
+        <h4>Global warming a myth.</h4>
+        <select data-placeholder="Choose a option" class="chosen-select" id="q7 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+        <h3><strong>Question 8</strong></h3>
+        <h4>Science cannot explain everythings.</h4>
+        <select data-placeholder="Choose a option" class="chosen-select" id="q8 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+        <h3><strong>Question 9</strong></h3>
+        <h4>Solar energy is efficient</h4>
+        <select data-placeholder="Choose a option" class="chosen-select" id="q9 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+
+        <h3><strong>Question 10</strong></h3>
+        <h4>Human will land on Mars before 2025.</h4>
+        <select data-placeholder="Choose a option" class="chosen-select" id="q10 question" tabindex="2">
+            <option value=""></option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5 (Strongly Agree)</option>
+        </select>
+
+        <br>
+        <br>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle"
+                aria-hidden="true"></i>
+            Submit</button>
+
+        <hr>
+        <footer class="footer">
+            <div class="container">
+                <p><a href="/api/survey" target="_blank">API Friends List</a> | <a
+                        href="https://github.com/krekorian/Friend_Finder.git" target="_blank">GitHub Repo</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="match-name"></h2>
+                    <!-- <img id="match-img"
+                        src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt=""> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            updateFormEnabled()
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
+
+                var IDID = document.getElementById("name").value;
+                console.log("ID==" + IDID);
+
+                var answerArray = [];
+                for (i = 0; i < ($(".chosen-select").length); i++) {
+                    if ($(".chosen-select")[i].value == "") {
+                        console.log("NaaaaaN");
+                    } else {
+                        console.log($(".chosen-select")[i].value);
+                        answerArray.push($(".chosen-select")[i].value);
+                    }
+                    // console.log($(".chosen-select")[i].value);
+                }
+                console.log("answers:::" + answerArray);
+                var objectToPass = {};
+                objectToPass[IDID] = answerArray;
+                objectToPass["Picture"] = document.getElementById("photo").value;
+                console.dir("objectToPass:::" + objectToPass);
+                $.post("/api/survey", objectToPass,
+                    function (data) {
+                        console.log(data);
+
+                        // If a table is available... tell user they are booked.
+                        if (data) {
+                            alert("Data copied");
+                            resetform();
+                        }
+
+                        // If a table is available... tell user they on the waiting list.
+                        else {
+                            alert("Sorry data copy issue");
+                        }
+
+
+
+                    });
+            });
+
+
+
+            $(document).change(updateFormEnabled);
+        });
+
+
+        function updateFormEnabled() {
+            if (verifyAdSettings()) {
+                console.log("actioning true");
+
+                document.getElementById('submit').disabled = false;
+            } else {
+                $('#submit').attr('disabled', 'disabled');
+            }
+        }
+
+        function verifyAdSettings() {
+            var allAnswered = true;
+            for (i = 0; i < ($(".chosen-select").length); i++) {
+                if ($(".chosen-select")[i].value == "") {
+                    console.log("returning false");
+                    return false;
+                }
+
+            }
+            console.log("returning true");
+            return true
+        }
+
+        function resetform() {
+            $(".chosen-select").each(function () { this.selectedIndex = 0 });
+            document.getElementById("name").value = "";
+            document.getElementById("photo").value = "";
+            $('#submit').attr('disabled', 'disabled');
+        }
+
+    </script>
+
+</body>
+
+
+</html>
