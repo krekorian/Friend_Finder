@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FriendFinder</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+</head>
+
+<body>
+    <h1>Home</h1>
+    <br>
+    <br>
+    <div></div>
+    <div style="margin-left: 50px">
+        <button type="button" class="btn" onclick="window.location.href='survey'">Survey</button>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div></div>
+    <div id="main-list" style="margin-left: 50px"></div>
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div>
+
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        $(document).ready(function () {
+
+            getSurvey();
+            $(document).on("click", "#friends", function () {
+                // event.preventDefault();
+                //console.log($(this).attr("value"));
+                checkBestFriend($(this).attr("value"));
+            });
+        });
+
+        function getSurvey() {
+
+            // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+            $.ajax({ url: "/api/survey", method: "GET" })
+                .then(function (waitData) {
+
+                    // Here we then log the waitlistData to console, where it will show up as an object.
+                    console.log(waitData.length);
+                    for (i = 0; i < waitData.length; i++) {
+                        console.log(Object.keys(waitData[i])[0]);
+                        var x = document.createElement("button");
+                        var y = document.createElement("div");
+                        x.setAttribute('type', 'button');
+                        x.setAttribute("value", Object.keys(waitData[i])[0]);
+                        x.setAttribute("id", "friends");
+                        x.setAttribute("class", "btn mybutton");
+                        x.setAttribute("style", "margin: 10px");
+                        // $('x').className("modal");
+                        x.innerHTML = Object.keys(waitData[i])[0]
+                        //console.log(x);
+                        document.getElementById("main-list").appendChild(x);
+                        linebreak = document.createElement("br");
+                        document.getElementById("main-list").appendChild(linebreak);
+                        document.getElementById("main-list").appendChild(y);
+                    }
+
+                });
+
+
+        }
+
+        function checkBestFriend(inputFriend) {
+
+            $.ajax({ url: "/api/survey", method: "GET" })
+                .then(function (waitData) {
+
+
+                    var selectedFriendScore;
+                    var bestFriendScore;
+                    var bestFriendName;
+                    var difference = 1000;
+                    for (i = 0; i < waitData.length; i++) {
+                        // console.log(waitData[i][Object.keys(waitData[i])[0]]);
+                        var arr = [];
+                        arr = waitData[i][Object.keys(waitData[i])[0]];
+                        var total = 0;
+                        for (j = 0; j < arr.length; j++) {
+                            // console.log(arr[j] + "output is " + parseInt(arr[j]));
+
+                            total += parseInt(arr[j]);
+                        }
+                        // console.log("total for " + Object.keys(waitData[i])[0] + " is " + total);
+
+                        if (inputFriend === Object.keys(waitData[i])[0]) {
+                            console.log("selected friend score" + Object.keys(waitData[i])[0] + " is " + total);
+                            selectedFriendScore = total;
+                        }
+
+                    }
+                    for (i = 0; i < waitData.length; i++) {
+                        // console.log(waitData[i][Object.keys(waitData[i])[0]]);
+                        var arr = [];
+                        arr = waitData[i][Object.keys(waitData[i])[0]];
+                        var total = 0;
+                        for (j = 0; j < arr.length; j++) {
+                            // console.log(arr[j] + "output is " + parseInt(arr[j]));
+
+                            total += parseInt(arr[j]);
+                        }
+                        // console.log("total for " + Object.keys(waitData[i])[0] + " is " + total);
+
+                        if (inputFriend !== Object.keys(waitData[i])[0]) {
+                            console.log("other friend friend score" + Object.keys(waitData[i])[0] + " is " + total);
+                            if (Math.abs(total - selectedFriendScore) <= difference) {
+                                bestFriendName = Object.keys(waitData[i])[0];
+                                difference = Math.abs(total - selectedFriendScore);
+                            }
+
+                        }
+
+                    }
+
+                    alert("Best Friend is " + bestFriendName);
+
+                });
+
+
+        }
+
+
+
+    </script>
+
+
+</body>
+
+
+
+</html>
